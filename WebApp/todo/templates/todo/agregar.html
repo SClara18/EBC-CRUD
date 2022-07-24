@@ -1,0 +1,35 @@
+{% extends 'todo/layout.html' %}
+{% block title %} Agregar tareas {% endblock %}
+{% block content %}
+
+
+		
+<div class="row">
+	<div class="col-md-4 offset-md-4 text-center">
+		<h2 style="color:#FAAF00">Agregar tarea</h2>
+		<div class="card">
+	<div class="card-body" style="background-color:#5000A6">
+
+
+	<form action="" method="POST">{% csrf_token %}
+			<input type="hidden" name="csrfmiddlewaretoken" value="utWyo1G6GVdFYzQ0OEjDj6M1353a2qFuWXGGzLt3OvpniUmGWwwI71LBY3HrVTLk">
+		<div class="form-group">
+			<label for="id_tarea"><h5 style="color:#FAAF00">Tarea:</h5></label>
+			<input type="text" name="tarea" maxlength="100" required="" id="id_tarea" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="id_maestro"><h5 style="color:#FAAF00">Maestro:</h5></label>
+			<input type="text" name="maestro" maxlength="100" required="" id="id_maestro" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="id_descripcion"><h5 style="color:#FAAF00">Descripción:</h5></label>
+			<input type="text" name="descripcion" maxlength="100" required="" id="id_descripcion" class="form-control">
+		</div>
+		<div class="d-grid gap-2">
+			<button style="background-color:#FAAF00"><h5 style="color:#ffff">Agregar datos</h5></button>
+		</div>
+	</form>
+	
+
+
+{% endblock %} 

@@ -1,0 +1,195 @@
+{% extends 'todo/layout.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+
+    
+    <!-- Masthead-->
+ <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-black" 
+     style="
+         background-image: url('https://t4.ftcdn.net/jpg/02/48/94/37/240_F_248943706_44KJuhwSInZ8T50c2G8S0rTCDUE5yIcs.jpg'); 
+         height: 100vh;
+         background-size: cover;" >
+     <header class="masthead">
+         <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+             <div class="d-flex justify-content-center">
+                 <div class="text-center" style="margin-top:50%;">
+                     <h1 class="mx-auto my-0 text-uppercase" style="color:#FAAF00">Crud EBC!</h1>
+                     <br  />
+                     
+                 </div>
+                 <div></div>
+             </div>
+         </div>
+     </header>
+   </div>
+    <!-- About-->
+    <!-- Projects-->
+     <section class="projects-section bg-light" id="projects"    style="
+       background-image: url('https://www.xtrafondos.com/wallpapers/resoluciones/21/3d-abstraccion-morado_1280x720_7934.jpg'); 
+       height: 70vh;
+       background-size: cover;">
+         <div class="container px-4 px-lg-5">
+             <!-- Featured Project Row-->
+             <br> <br/>
+    
+             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                 <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="https://concepto.de/wp-content/uploads/2014/08/programacion-2-e1551291144973.jpg" alt="..." /></div>
+                 <div class="col-xl-4 col-lg-5">
+                     <div class="featured-text text-center text-lg-left">
+                         <h4 style="color:#FAAF00"> Proyecto </h4>
+                         <p class="text-white-50 mb-0">Este proyecto fue hecho con Django, html, CSS y JavaScript.</p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <br> <br/>
+    <!-- Projects-->
+  <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-black" 
+        style="
+            background-image: url('https://besthqwallpapers.com/Uploads/10-1-2021/151132/thumb2-dark-purple-lines-background-abstract-purple-background-creative-purple-background-lines-background.jpg'); 
+            height: 100vh;
+            background-size: cover;" >
+        <section class="about-section text-center" id="views">
+           
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center" style="margin-top:50%;">
+                        <h1 style="color:#FAAF00" class="mx-auto my-0 text-uppercase">Lista de tareas!</h1>
+                      <br />
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                 <thead>
+                    <tr> 
+                       <th style="background-color:#391B59"><centre><h5 style="color:#FAAF00"><center>Tareas</center></h5></th></centre>
+                       <th style="background-color:#391B59"><h5 style="color:#FAAF00"><center>Maestro</center></h5></th>
+                       <th style="background-color:#391B59"><h5 style="color:#FAAF00"><center>Descripción</center></h5></th>
+                       <th colspan="2" style="background-color:#391B59"><h5 style="color:#FAAF00"><center>Opciones</center></h5></th></th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    {% for tarea in tareas %}
+                    <tr>
+                    <td style="background-color:#B1BFE3"><center>{{ tarea.tarea }}</center></td>
+                    <td style="background-color:#B1BFE3"><center>{{ tarea.maestro }}</center></td>
+                    <td style="background-color:#B1BFE3"><center>{{ tarea.descripcion }}</center></td>
+                    <td style="background-color:#B1BFE3"><center><a href="{% url 'editar' tarea.id %}"><button type="button" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                       </svg></button></a></td></center>
+                    <td style="background-color:#B1BFE3"><center><a href="{% url 'eliminar' tarea.id %}"><button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                         <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                       </svg></button></a></td></center>
+                       {% endfor %}
+                     </tr>
+                 </tbody>
+              </table>
+            </section>
+      </div>
+
+    <br> <br/>
+
+    <!-- Signup-->
+ <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-black" 
+        style="
+            background-image: url('https://media.istockphoto.com/photos/purple-abstract-vintage-background-picture-id1344120845?b=1&k=20&m=1344120845&s=170667a&w=0&h=6-g0jYa1i31JQol7L9rvemgPt_VQPecPfvQNm-QDZUo='); 
+            height: 100vh;
+            background-size: cover;" >
+        <section class="about-section text-center" id="about">
+           <br> <br/>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                      <h2 style="color:#FAAF00">Plantilla de formulario</h2>
+                      <br></br> 
+             
+                           <div class="card">
+                        <div class="card-body" style="background-color:#5000A6">
+                        
+                        
+                        <form action="" method="POST">{% csrf_token %}
+                              <input type="hidden" name="csrfmiddlewaretoken" value="utWyo1G6GVdFYzQ0OEjDj6M1353a2qFuWXGGzLt3OvpniUmGWwwI71LBY3HrVTLk">
+                           <div class="form-group">
+                              <label for="id_tarea"><h5 style="color:#FAAF00">Tarea:</h5></label>
+                              <input type="text" name="tarea" maxlength="100" required="" id="id_tarea" class="form-control" disabled>
+                           </div>
+                           <div class="form-group">
+                              <label for="id_maestro"><h5 style="color:#FAAF00">Maestro:</h5></label>
+                              <input type="text" name="maestro" maxlength="100" required="" id="id_maestro" class="form-control" disabled>
+                           </div>
+                           <div class="form-group">
+                              <label for="id_descripcion"><h5 style="color:#FAAF00">Descripción:</h5></label>
+                              <input type="text" name="descripcion" maxlength="100" required="" id="id_descripcion" class="form-control" disabled>
+                           </div>
+                           <div class="d-grid gap-2">
+                              <button style="background-color:#FAAF00" disabled><h5 style="color:#ffff">Agregar datos</h5></button>
+                           </div>
+                        </form>
+                    </div>
+        </section>
+        <p style="color:#FAAF00">
+             Así se ve el formulario para agregar o editar la tarea, maestro o descripción. 
+          </p>
+        
+      </div>
+    <!-- Contact-->
+    <section class="contact-section bg-black" background>
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Name</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">Saúl Clara</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Email</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50"><a href="#!">miau@miau.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Phone</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">+52 01800(miau)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social d-flex justify-content-center" style="margin-top:7%;">
+                <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+      
+    </section>
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2022</div></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    </body>  
+    {% endblock %}
